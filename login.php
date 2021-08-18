@@ -5,8 +5,8 @@ $user="root";
 $password="";
 $db="demo";
 
-mysql_connect($host,$user,$password);
-mysql_select_db($db);
+MySQLi_connect($host,$user,$password);
+MySQLi_select_db($db,'demo');
 
 if(isset($_POST['username'])){
     
@@ -15,9 +15,9 @@ if(isset($_POST['username'])){
     
     $sql="select * from loginform where user='".$uname."'AND Pass='".$password."' limit 1";
     
-    $result=mysql_query($sql);
+    $result=MySQLi_query($sql);
     
-    if(mysql_num_rows($result)==1){
+    if(MySQLi_num_rows($result)==1){
         echo " You Have Successfully Logged in";
         exit();
     }
@@ -28,8 +28,6 @@ if(isset($_POST['username'])){
         
 }
 ?>
-
-
 
 
 <!DOCTYPE html>
